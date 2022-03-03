@@ -1,24 +1,29 @@
-//Se crea un algoritmo el cual ingresa datos en un array hasta que se finaliza la carga de elementos para posteriormente sumar todos los elementos de adentro y corroborar si es mayor a 50 o 100
-let lista = []
-let num = parseInt(prompt("Ingrese un numero positivo o -1 para finalizar: "))
 
-while (num != -1 ){
-    if (num <= 0){
-        alert("El numero ingresado no es positivo, " + "reintente")
-    }else{
-        lista.push(num) 
+debugger
+class alumno {
+    constructor(nombre, edad, notas, promedio) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.notas = notas;
+        this.promedio = promedio;
     }
-    num = parseInt(prompt("Ingrese un nuevo numero o -1 para finalizar: "))
+
 }
 
-let resultado = 0
-for (let i = 0; i < lista.length; i++){
-    resultado += lista[i]
+
+let nombre = prompt("Ingrese el nombre del alumno o -1 para finalizar: ")
+let edad = prompt("Ingrese la edad del alumno: ")
+let nota = prompt("Ingrese las notas del alumno " + nombre + " o -1 para finalizar la carga de notas: ")
+let notas = []
+let suma = 0
+let cant = 0
+while (nota != "-1") {
+    notas.push(parseInt(nota))
+    suma = suma + parseInt(nota)
+    cant++
+    nota = prompt("Ingrese las notas del alumno " + nombre + " o -1 para finalizar la carga de notas: ")
 }
-if (resultado <= 50){
-    alert("El resultado de la suma de los numeros ingresados es " + resultado +", el cual es menor o igual a 50")
-}else if (resultado > 50 && resultado <= 100){
-    alert("El resultado de la suma de los numeros ingresados es " + resultado +", el cual es mayor a 50 y menor o igual que 100")
-}else{
-    alert("El resultado de la suma de los numeros ingresados es " + resultado +", el cual es mayor a 100")
-}
+promedio = suma / cant
+const alumno1 = new alumno(nombre, edad, notas, promedio)
+alert("El alumno " + alumno1.nombre + " tiene las siguientes notas: " + alumno1.notas + "\n con un promedio de " + alumno1.promedio)
+
